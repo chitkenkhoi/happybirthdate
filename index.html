@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Happy birthdate</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">##</span><br />
+				<span class="comments"># I am a programmer,</span><br />
+				<span class="comments"># so I write code to celebrate your birth date in coder's way.</span><br />
+				<span class="comments">##</span><br />
+				i = Kiter(<span class="string">"Khôi")</span><br />
+				u = Rescuer(<span class="string">"Pi"</span>)<br />
+				<span class="comments"># September 21, 2023, lần đầu tôi duo rank với bà.
+				</span><br />
+				i.invite(u)<br />
+				<span class="comments"># Sau đó tụi mình bắt đầu chơi nhiều hơn. </span><br />
+				i.playwith(u)<br />
+				<span class="comments"># Nhiều lần bà cứu tôi 49.</span><br />
+				u.rescue(i)<br />
+				<span class="comments"># Hay tôi đi cover cho bà.</span><br />
+				i.cover(u)<br />
+				<span class="comments"># Tụi mình lên rank cùng nhau.</span><br />
+				rankup(u, i)<br />
+				<span class="comments"># Tụi mình lên badge cùng nhau.</span><br />
+				badgeup(u, i)<br />
+				<span class="comments"># Tụi mình vui vẻ cùng nhau.</span><br />
+				happy(u, i)<br />
+				<span class="comments"># Đôi khi có những lúc tôi thiếu tinh tế làm bà giận.</span><br />
+				conflict(u, i, sometimes=<span class="keyword">True</span>)<br />
+				<span class="comments"># Cho tôi xin lỗi nhé.</span><br />
+				i.appolozie(u) <br />
+				<span class="comments"># Hi vọng tôi vẫn được chơi với bà trong năm nay.</span><br />
+				isPlayTogether(u,i) = <span class="keyword">True</span> <br />
+				<span class="comments"># You are my greatest partner.</span><br />
+				<span class="comments"># Happy birthdate my dear partner.</span><br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Pi sinh ra đã được
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Chúc tuổi 20 của bà thật hạnh phúc.<br />
+						<div class="signature">- Partner của bà | Khôi</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div id="copyright">
+		Copyright © 2020 <a href='http://MyLoveStory.com'>cuiqingcai.com</a> 2014-2020
+	</div> -->
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		// 此处月份介于 0 ~ 11 之间。用本地时间表示，如 8 月要用 7 表示。
+		together.setFullYear(2004, 2, 26);
+		together.setHours(17);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+			document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+
+</html>
